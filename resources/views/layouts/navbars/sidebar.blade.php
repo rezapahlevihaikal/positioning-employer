@@ -6,7 +6,7 @@
   -->
   <div class="logo">
     <a href="https://creative-tim.com/" class="simple-text logo-normal">
-      {{ __('Creative Tim') }}
+      {{ __('PUSINTEK') }}
     </a>
   </div>
   <div class="sidebar-wrapper">
@@ -19,8 +19,8 @@
       </li>
       <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
         <a class="nav-link" data-toggle="collapse" href="#laravelExample" aria-expanded="true">
-          <i><img style="width:25px" src="{{ asset('material') }}/img/laravel.svg"></i>
-          <p>{{ __('Laravel Examples') }}
+          <!-- <i><img style="width:25px" src="{{ asset('material') }}/img/laravel.svg"></i> -->
+          <p>{{ __('Admin Management') }}
             <b class="caret"></b>
           </p>
         </a>
@@ -32,10 +32,18 @@
                 <span class="sidebar-normal">{{ __('User profile') }} </span>
               </a>
             </li>
+
             <li class="nav-item{{ $activePage == 'user-management' ? ' active' : '' }}">
               <a class="nav-link" href="{{ route('user.index') }}">
                 <span class="sidebar-mini"> UM </span>
                 <span class="sidebar-normal"> {{ __('User Management') }} </span>
+              </a>
+            </li>
+
+            <li class="nav-item{{ $activePage == 'role-management' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('role.index') }}">
+                <span class="sidebar-mini"> RM </span>
+                <span class="sidebar-normal"> {{ __('Roles Management') }} </span>
               </a>
             </li>
           </ul>
