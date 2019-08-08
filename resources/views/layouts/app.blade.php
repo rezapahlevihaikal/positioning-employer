@@ -24,11 +24,11 @@
             </form>
             @include('layouts.page_templates.auth')
         @endauth
-        <!-- @guest()
+        @guest()
             @include('layouts.page_templates.guest')
-        @endguest -->
+        @endguest
         
-        <div class="fixed-plugin">
+        <!-- <div class="fixed-plugin">
           <div class="dropdown show-dropdown">
             <a href="#" data-toggle="dropdown">
               <i class="fa fa-cog fa-2x"> </i>
@@ -72,12 +72,12 @@
               <li class="button-container">
                 <a href="https://www.creative-tim.com/product/material-dashboard-laravel" target="_blank" class="btn btn-primary btn-block">Free Download</a>
               </li>
-              <!-- <li class="header-title">Want more components?</li>
+              <li class="header-title">Want more components?</li>
                   <li class="button-container">
                       <a href="https://www.creative-tim.com/product/material-dashboard-pro" target="_blank" class="btn btn-warning btn-block">
                         Get the pro version
                       </a>
-                  </li> -->
+                  </li>
               <li class="button-container">
                 <a href="https://material-dashboard-laravel.creative-tim.com/docs/getting-started/laravel-setup.html" target="_blank" class="btn btn-default btn-block">
                   View Documentation
@@ -95,7 +95,7 @@
               </li>
             </ul>
           </div>
-        </div>
+        </div> -->
         <!--   Core JS Files   -->
         <script src="{{ asset('material') }}/js/core/jquery.min.js"></script>
         <script src="{{ asset('material') }}/js/core/popper.min.js"></script>

@@ -44,17 +44,19 @@
                   </div>
                 </div>
 
-                <!-- <div class="row">
+                <div class="row">
                   <label class="col-sm-2 col-form-label">{{ __('Role') }}</label>
                   <div class="col-sm-7">
-                    <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
-                      <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" id="input-email" type="email" placeholder="{{ __('Role') }}" value="{{ old('email') }}" required />
-                      @if ($errors->has('email'))
-                        <span id="email-error" class="error text-danger" for="input-email">{{ $errors->first('email') }}</span>
-                      @endif
+                    <div class="form-group{{ $errors->has('role_id') ? ' has-danger' : '' }}">
+                      <select class="form-control {{ $errors->has('role_id') ? 'is-invalid' : '' }}" name="role_id" id="input-role_id">
+                        <option value="" disabled selected>Select your option</option>
+                        @foreach($roles as $role)
+                          <option value="{{$role->id}}">{{$role->name}}</option>
+                        @endforeach
+                      </select>
                     </div>
                   </div>
-                </div> -->
+                </div>
 
 
                 <div class="row">

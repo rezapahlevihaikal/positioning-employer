@@ -42,6 +42,21 @@
                     </div>
                   </div>
                 </div>
+
+                <div class="row">
+                  <label class="col-sm-2 col-form-label">{{ __('Role') }}</label>
+                  <div class="col-sm-7">
+                    <div class="form-group{{ $errors->has('role_id') ? ' has-danger' : '' }}">
+                      <select class="form-control {{ $errors->has('role_id') ? 'is-invalid' : '' }}" name="role_id" id="input-role_id">
+                        <option value="" disabled selected>Select your option</option>
+                        @foreach($roles as $role)
+                          <option value="{{$role->id}}">{{$role->name}}</option>
+                        @endforeach
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                
                 <div class="row">
                   <label class="col-sm-2 col-form-label" for="input-password">{{ __(' Password') }}</label>
                   <div class="col-sm-7">

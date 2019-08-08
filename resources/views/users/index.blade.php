@@ -38,6 +38,9 @@
                         {{ __('Email') }}
                       </th>
                       <th>
+                        {{ __('Role / Jabatan') }}
+                      </th>
+                      <th>
                         {{ __('Creation date') }}
                       </th>
                       <th class="text-right">
@@ -54,10 +57,12 @@
                             {{ $user->email }}
                           </td>
                           <td>
+                            {{$user->rolesDetail->name}}
+                          </td>
+                          <td>
                             {{ $user->created_at->format('Y-m-d') }}
                           </td>
                           <td class="td-actions text-right">
-                            @if ($user->id != auth()->id())
                               <form action="{{ route('user.destroy', $user) }}" method="post">
                                   @csrf
                                   @method('delete')
@@ -71,12 +76,6 @@
                                       <div class="ripple-container"></div>
                                   </button>
                               </form>
-                            @else
-                              <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('profile.edit') }}" data-original-title="" title="">
-                                <i class="material-icons">edit</i>
-                                <div class="ripple-container"></div>
-                              </a>
-                            @endif
                           </td>
                         </tr>
                       @endforeach

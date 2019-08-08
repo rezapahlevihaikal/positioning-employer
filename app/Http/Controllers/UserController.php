@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Role;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Hash;
 
@@ -25,8 +26,9 @@ class UserController extends Controller
      * @return \Illuminate\View\View
      */
     public function create()
-    {
-        return view('users.create');
+    {   
+        $roles = Role::all();
+        return view('users.create',compact('roles'));
     }
 
     /**
@@ -50,8 +52,10 @@ class UserController extends Controller
      * @return \Illuminate\View\View
      */
     public function edit(User $user)
-    {
-        return view('users.edit', compact('user'));
+    {   
+    
+        $roles = Role::all();
+        return view('users.edit', compact('user','roles'));
     }
 
     /**
@@ -63,11 +67,12 @@ class UserController extends Controller
      */
     public function update(UserRequest $request, User  $user)
     {
+        
         $user->update(
             $request->merge(['password' => Hash::make($request->get('password'))])
                 ->except([$request->get('password') ? '' : 'password']
         ));
-
+        // dd($user);
         return redirect()->route('user.index')->withStatus(__('User successfully updated.'));
     }
 

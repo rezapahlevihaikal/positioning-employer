@@ -79,7 +79,10 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $role = Role::find($id);
+        $role->name = $request->name;
+        $role->save();
+        return redirect()->route('role.index')->withStatus(__('Role successfully updated.'));
     }
 
     /**
