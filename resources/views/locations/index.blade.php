@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'user-management', 'titlePage' => __('User Management')])
+@extends('layouts.app', ['activePage' => 'locations-management', 'titlePage' => __('Locations Management')])
 
 @section('content')
   <div class="content">
@@ -7,8 +7,8 @@
         <div class="col-md-12">
             <div class="card">
               <div class="card-header card-header-primary">
-                <h4 class="card-title ">{{ __('Daftar User') }}</h4>
-                <p class="card-category"> {{ __('') }}</p>
+                <h4 class="card-title ">{{ __('Locations') }}</h4>
+                <p class="card-category"> {{ __('Here you can manage Locations') }}</p>
               </div>
               <div class="card-body">
                 @if (session('status'))
@@ -25,57 +25,47 @@
                 @endif
                 <div class="row">
                   <div class="col-12 text-right">
-                    <a href="{{ route('user.create') }}" class="btn btn-sm btn-primary">{{ __('Tambah User') }}</a>
+                    <a href="{{ route('locations.create') }}" class="btn btn-sm btn-primary">{{ __('Tambahkan   ') }}</a>
                   </div>
                 </div>
                 <div class="table-responsive">
                   <table class="table">
                     <thead class=" text-primary">
                       <th>
-                          {{ __('Nama Pegawai') }}
+                          {{ __('Nama Gedung') }}
                       </th>
                       <th>
-                        {{ __('Email') }}
+                        {{ __('Lantai Gedung') }}
                       </th>
                       <th>
-<<<<<<< HEAD
-                        {{ __('Role / Jabatan') }}
-                      </th>
-                      <th>
-                        {{ __('Creation date') }}
-=======
-                        {{ __('Terdaftar') }}
->>>>>>> 7534ec67275cc06adf750117e61f5d25462ba0bc
+                        {{ __('Update') }}
                       </th>
                       <th class="text-right">
                         {{ __('Actions') }}
                       </th>
                     </thead>
                     <tbody>
-                      @foreach($users as $user)
+                      @foreach($Location as $user)
                         <tr>
                           <td>
-                            {{ $user->name }}
+                            {{ $user->nama_gedung }}
                           </td>
                           <td>
-                            {{ $user->email }}
+                            {{ $user->lantai_gedung }}
                           </td>
                           <td>
-                            {{$user->rolesDetail->name}}
-                          </td>
-                          <td>
-                            {{ $user->created_at->format('Y-m-d') }}
+                            {{ $user->updated_at->diffForHumans() }}
                           </td>
                           <td class="td-actions text-right">
-                              <form action="{{ route('user.destroy', $user) }}" method="post">
+                              <form action="{{ route('locations.destroy', $user->id) }}" method="post">
                                   @csrf
                                   @method('delete')
                               
-                                  <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('user.edit', $user) }}" data-original-title="" title="">
+                                  <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('locations.edit', $user->id) }}" data-original-title="" title="">
                                     <i class="material-icons">edit</i>
                                     <div class="ripple-container"></div>
                                   </a>
-                                  <button type="button" class="btn btn-danger btn-link" data-original-title="" title="" onclick="confirm('{{ __("Are you sure you want to delete this user?") }}') ? this.parentElement.submit() : ''">
+                                  <button type="button" class="btn btn-danger btn-link" data-original-title="" title="" onclick="confirm('{{ __("Are you sure you want to delete this location?") }}') ? this.parentElement.submit() : ''">
                                       <i class="material-icons">close</i>
                                       <div class="ripple-container"></div>
                                   </button>

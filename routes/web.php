@@ -32,7 +32,9 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'UserController', ['except' => ['show']])->middleware('role');
 	Route::resource('role', 'RoleController')->middleware('role');
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
+	Route::get('my-profile', 'ProfileController@indexProfile');
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
+	Route::resource('locations', 'LocationController');
 });
 
